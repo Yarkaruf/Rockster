@@ -15,16 +15,18 @@ a {
 
 * {
   box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 :root{
   --black:#333333;
   --white:white;
   --primary:#3A63DE;
-  --primary-active:#27449a;
+  --primary-active:#00000025;
   --red:#FD726A;
   --orange:#E56E19;
   --green:#44CB7F;
   --light-green:#C8F8E4;
   --gray:#595F69;
-  --gray-light:#F2F5FA;
+  --gray-light:#e0e3e9;
 }

@@ -1,7 +1,10 @@
+import { withLayoult } from '../layout/Layout'
 
-export default function Home() {
+function Home(): JSX.Element {
   return (
     <>
+      <h1>aa</h1>
     </>
   )
 }
+export default withLayoult(Home);
