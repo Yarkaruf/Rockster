@@ -1,9 +1,10 @@
-import { withLayoult } from '../layout/Layout'
+import { withLayoult } from '../layout/Layout';
+import { Htag, TagP, EcommerceNav } from '../components';
 
 function Home(): JSX.Element {
   return (
     <>
-      <h1>aa</h1>
+      <EcommerceNav />
     </>
   )
 }

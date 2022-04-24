@@ -18,6 +18,9 @@ a {
   padding: 0;
   margin: 0;
 }
+li{
+  list-style-type: none;
+}
 :root{
   --black:#333333;
   --white:white;

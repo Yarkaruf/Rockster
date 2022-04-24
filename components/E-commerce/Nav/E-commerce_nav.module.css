@@ -1,0 +1,25 @@
+.ghost{
+	color: var(--gray);
+	height: 100%;
+	margin-right: 40px;
+	cursor: pointer;
+}
+.primary{
+	color: var(--primary);
+	border-bottom:solid 2px var(--primary);
+	height: 100%;
+	margin-right: 40px;
+	cursor: pointer;
+}
+.nav{
+	height: 34px;
+	border-bottom: solid 1px var(--gray);
+	display: flex;
+	justify-content: flex-start;
+	align-items: flex-start;
+	font-family: 'Poppins';
+	font-style: normal;
+	font-weight: 600;
+	font-size: 14px;
+	line-height: 21px;
+}

@@ -6,7 +6,7 @@ import React, { Fragment } from 'react';
 function MyApp({ Component, pageProps }: AppProps): JSX.Element {
   return <Fragment>
     <Head>
-      <title>MyTop</title>
+      <title>Rockster</title>
       <link key={2} rel="icon" href="/favicon.ico" />
       <link rel="preconnect" href="https://fonts.googleapis.com" />
       <link rel="preconnect" href="https://fonts.gstatic.com" />

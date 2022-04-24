@@ -1,0 +1,19 @@
+.search {
+	background-color: var(--gray-light);
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	opacity: .7;
+	cursor: text;
+	padding-right: 20px;
+}
+
+.search svg {
+	fill: rgb(65, 65, 65);
+	margin-left: 15px;
+	margin-right: 15px;
+}
+.searchLeftGroup{
+	width: auto;
+}
