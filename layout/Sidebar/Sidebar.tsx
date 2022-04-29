@@ -4,8 +4,7 @@ import cn from 'classnames';
 import Setting from './svg/Settings.svg';
 import Bell from './svg/Bell.svg';
 import Basic from './svg/Basic.svg';
-import Search from './svg/Search.svg'
-import Profile from './svg/Profile.svg'
+import Search from './svg/Search.svg';
 
 export const Sidebar = ({ className, ...props }: SidebarProps): JSX.Element => {
 	return (
@@ -25,6 +24,6 @@ export const Sidebar = ({ className, ...props }: SidebarProps): JSX.Element => {
 			</div>
 			<div className={styles.profile}>
 			</div>
-		</div >
+		</div>
 	)
 }

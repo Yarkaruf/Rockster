@@ -7,6 +7,9 @@
 	opacity: .7;
 	cursor: text;
 	padding-right: 20px;
+	height: 56px;
+	margin-top: 24px;
+	margin-left: 24px;
 }
 
 .search svg {
@@ -16,4 +19,6 @@
 }
 .searchLeftGroup{
 	width: auto;
+	display:flex;
+	align-items: center;
 }

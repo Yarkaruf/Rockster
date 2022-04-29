@@ -1,12 +1,37 @@
 .button{
 	display: inline-block;
 	box-sizing: border-box;
-	padding: 10px;
 	cursor: pointer;
-	text-align: center;
+	min-width: 56px;
+	max-height: 100%;
+	height: 56px;
 	border: none;
 	border-radius: 5px;
-	font-size: 14px;
+	font-family: 'Poppins';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 15px;
+	line-height: 22px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transition: all .1s;
+}
+.white{
+	background-color: #F5F6F8;
+}
+.white:hover{
+	background-color: var(--gray-light);
+}
+.min{
+	max-width: 56px;
+	padding: 0;
+}
+.mid{
+	padding: 16px;
+}
+.full{
+	width: 100%;
 }
 .primary{
 	color: var(--white);
@@ -14,31 +39,46 @@
 	transition: all .2s;
 }
 .primary:hover{
-	background-color: var(--primary-hover);
+	background-color: var(--green);
 	transition: all .2s;
 }
 .ghost svg{
 	fill:var(--black);
+	transition: .2s;
 }
 .ghost{
-	color: var(--black);
-	background-color: none;
-	border: 1px solid var(--gray-light);
+	color: var(--gray);
+	background-color: var(--gray-light);
 	transition: all .2s;
 }
 .ghost:hover{
-	background-color: var(--primary);
+	background-color: var(--green);
 	color: var(--white);
 	transition: all .2s;
 }
+.primary svg,
+.ghost:hover svg {
+	fill: var(--white);
+	transition: .2s;
+}	
 .arrow{
-	display: inline-block;
 	margin-left: 10px;
+	width: 20px;
+	height: 20px;
+	fill:var(--black);
+}
+.arrow:hover{
+	fill: var(--white);
 }
 .down{
 	transform: rotate(90deg);
 }
-.primary svg,
-.ghost:hover svg{
-	fill: var(--white)
+.plus{
+	display: flex;
+	justify-content: center;
+	align-items:center;
+}
+.plus svg{
+	fill:white;
+	width: 32px;
 }

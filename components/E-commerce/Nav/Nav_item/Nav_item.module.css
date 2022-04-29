@@ -1,0 +1,13 @@
+.ghost {
+	color: var(--gray);
+}
+
+.primary {
+	color: var(--primary);
+	border-bottom: solid 2px var(--primary);
+}
+.item{
+	height: 100%;
+	margin-right: 40px;
+	cursor: pointer;
+}

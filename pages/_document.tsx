@@ -11,7 +11,6 @@ class MyDocument extends Document {
 			<Html lang="ru">
 				<Head />
 				<body>
-					<main />
 					<NextScript />
 				</body>
 			</Html>
