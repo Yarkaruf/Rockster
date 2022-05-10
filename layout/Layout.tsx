@@ -9,9 +9,9 @@ const Layout = ({ children }: LayoutProps): JSX.Element => {
 		<div className={styles.wrapper}>
 			<Header className={styles.header} />
 			<Sidebar className={styles.sidebar} />
-			<div className={styles.body}>
+			<main className={styles.body}>
 				{children}
-			</div>
+			</main>
 		</div>
 	);
 };

@@ -21,6 +21,25 @@ a {
 li{
   list-style-type: none;
 }
+
+/* Let's get this party started */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.701);
+}
+
 :root{
   --black:#333333;
   --white:white;

@@ -20,7 +20,7 @@ export const Header = ({ className, ...props }: HeaderProps): JSX.Element => {
 				<Logo />
 			</div>
 			<nav>
-				<ul>
+				<ul className={styles.nav}>
 					<li className={styles.item}>
 						<Chart />
 						Dashboard

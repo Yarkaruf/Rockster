@@ -10,6 +10,13 @@
 }
 .header {
 	grid-area: header;
+	max-height: 100vh;
+	overflow-y:hidden;
+	overflow-x: hidden;
+}
+.header:hover{
+	overflow-y:overlay;
+	direction: rtl;
 }
 
 .sidebar {
