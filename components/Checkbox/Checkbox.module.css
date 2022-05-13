@@ -1,0 +1,33 @@
+.checkbox{
+	display: none;
+}
+.checkbox:checked + .fake::before{
+	opacity: 1;
+}
+.label{
+	display: flex;
+	align-items: center;
+}
+.text{
+	color: #333333;
+	margin-left: 10px;
+	font-weight: 400;
+	font-size: 15px;
+	line-height: 22px;
+}
+.fake{
+	display: inline-block;
+	width: 18px;
+	height: 18px;
+	background-color: #E1E3E5;
+}
+.fake::before{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 18px;
+	height: 18px;
+	content: url('./svg/check.svg');
+	background-color: #3A63DE;
+	opacity: 0;
+}

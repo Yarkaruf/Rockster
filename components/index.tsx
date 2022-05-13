@@ -6,3 +6,5 @@ export * from './E-commerce/Nav/Nav_item/Nav_item';
 export * from './Buttons/Buttons';
 export * from './E-commerce/Search';
 export * from './Table/Table';
+export * from './Loader/Loader';
+export * from './Checkbox/Checkbox';

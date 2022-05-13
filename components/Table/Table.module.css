@@ -7,13 +7,24 @@
 	font-weight: 400;
 	font-size: 15px;
 	line-height: 22px;
+	overflow-x: scroll;
+}
+.mark{
+	padding: 6px 14px;
+}
+.available{
+	color: #20A144;
+	background-color: #20a14520;
+}
+.disabled{
+	color: #E56E19;
+	background-color: #e56e1920;
 }
 .thead{
 	display: grid;
-	grid-template-columns: 42px 3fr 1fr 1fr 1fr 1fr 1fr 40px ;
+	grid-template-columns: 42px minmax(350px, 3fr) repeat(5, minmax(150px, 1fr)) 40px;
 	grid-template-rows: 30px;
-	color: #818386;
-	opacity: 0.65;
+	color: #818386ae;
 	font-weight: 600;
 	font-size: 14px;
 	line-height: 21px;
@@ -24,7 +35,7 @@
 }
 .tbody{
 	display: grid;
-	grid-template-columns: 42px 3fr 1fr 1fr 1fr 1fr 1fr 40px;
+	grid-template-columns: 42px minmax(350px,3fr) repeat(5,minmax(150px,1fr)) 40px;
 	grid-template-rows: 80px;
 	border-bottom: 1px solid #E1E3E6;
 }

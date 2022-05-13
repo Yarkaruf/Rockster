@@ -1,5 +1,6 @@
-import { ButtonHTMLAttributes, DetailedHTMLProps, ReactNode } from 'react';
+import { DetailedHTMLProps, TableHTMLAttributes } from 'react';
 
-export interface TableProps extends DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement> {
-
+export interface TableProps extends DetailedHTMLProps<TableHTMLAttributes<HTMLTableElement>, HTMLTableElement> {
+	data: any;
+	mark: 'available' | 'disabled';
 }

@@ -1,109 +1,18 @@
 import styles from './Table.module.css';
 import { TableProps } from './Table.props';
-import cn from 'classnames';
 import React from 'react';
+import cn from 'classnames';
 import Filter from './svg/Filter.svg';
 import Setting from './svg/Setting.svg';
+import { Checkbox } from '../Checkbox/Checkbox';
 
 
-export const Table = ({ ...props }: TableProps): JSX.Element => {
-	const data = [
-		{
-			id: 1,
-			Number: 790841,
-			Name: "MacBook Pro 15 Retina Touch Bar MV902",
-			Category: "Notebook",
-			Price: "2.500",
-			Date: "14.08.2020",
-			Status: "Available",
-		},
-		{
-			id: 2,
-			Number: 790841,
-			Name: "MacBook Pro 15 Retina Touch Bar MV902",
-			Category: "Notebook",
-			Price: "2.500",
-			Date: "14.08.2020",
-			Status: "Available",
-		},
-		{
-			id: 3,
-			Number: 790841,
-			Name: "MacBook Pro 15 Retina Touch Bar MV902",
-			Category: "Notebook",
-			Price: "2.500",
-			Date: "14.08.2020",
-			Status: "Available",
-		},
-		{
-			id: 4,
-			Number: 790841,
-			Name: "MacBook Pro 15 Retina Touch Bar MV902",
-			Category: "Notebook",
-			Price: "2.500",
-			Date: "14.08.2020",
-			Status: "Available",
-		},
-		{
-			id: 5,
-			Number: 790841,
-			Name: "MacBook Pro 15 Retina Touch Bar MV902",
-			Category: "Notebook",
-			Price: "2.500",
-			Date: "14.08.2020",
-			Status: "Available",
-		},
-		{
-			id: 6,
-			Number: 790841,
-			Name: "MacBook Pro 15 Retina Touch Bar MV902",
-			Category: "Notebook",
-			Price: "2.500",
-			Date: "14.08.2020",
-			Status: "Available",
-		},
-		{
-			id: 7,
-			Number: 790841,
-			Name: "MacBook Pro 15 Retina Touch Bar MV902",
-			Category: "Notebook",
-			Price: "2.500",
-			Date: "14.08.2020",
-			Status: "Available",
-		},
-		{
-			id: 8,
-			Number: 790841,
-			Name: "MacBook Pro 15 Retina Touch Bar MV902",
-			Category: "Notebook",
-			Price: "2.500",
-			Date: "14.08.2020",
-			Status: "Available",
-		},
-		{
-			id: 9,
-			Number: 790841,
-			Name: "MacBook Pro 15 Retina Touch Bar MV902",
-			Category: "Notebook",
-			Price: "2.500",
-			Date: "14.08.2020",
-			Status: "Available",
-		},
-		{
-			id: 10,
-			Number: 790841,
-			Name: "MacBook Pro 15 Retina Touch Bar MV902",
-			Category: "Notebook",
-			Price: "2.500",
-			Date: "14.08.2020",
-			Status: "Available",
-		}
-	]
+export const Table = ({ mark, data, ...props }: TableProps): JSX.Element => {
 	return (
 		<table className={styles.table}>
 			<thead>
 				<tr className={styles.thead}>
-					<td><input type='checkbox' /></td>
+					<td><Checkbox /></td>
 					<td>
 						Product Name
 						<Filter />
@@ -131,16 +40,19 @@ export const Table = ({ ...props }: TableProps): JSX.Element => {
 				</tr>
 			</thead>
 			<tbody>
-				{data.map((row) => {
+				{data.map((row: any) => {
 					return (
-						<tr className={styles.tbody}>
-							<td className={styles.item}><input type='checkbox' /></td>
+						<tr key={row.id} className={styles.tbody}>
+							<td className={styles.item}><Checkbox /></td>
 							<td className={styles.item}>{row.Name}</td>
 							<td className={styles.item}>#{row.Number}</td>
 							<td className={styles.item}>{row.Category}</td>
 							<td className={styles.item}>${row.Price}</td>
 							<td className={styles.item}>{row.Date}</td>
-							<td className={styles.item}>{row.Status}</td>
+							<td className={styles.item}><p className={cn(styles.mark, {
+								[styles.available]: row.Status == 'Available',
+								[styles.disabled]: row.Status == 'Disabled'
+							})}>{row.Status}</p></td>
 							<td className={styles.item}><div className={styles.setting}><Setting /></div></td>
 						</tr>
 					)
