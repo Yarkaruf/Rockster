@@ -16,14 +16,27 @@
 	width: 20px;
 	fill: black;
 }
+.search:focus{
+	background-color: var(--primary-white);
+	transition: .2s;
+}
 .search{
-	background-color: var(--gray-light);
-	display: flex;
-	flex-direction: row;
-	justify-content: flex-start;
-	align-items: center;
-	opacity: .7;
-	cursor: text;
+	transition: .2s;
+	width: 100%;
+	border: none;
+	background-color: var(--white-blue);
+	height: 100%;
+	padding-left: 46px;
+	font-weight: 400;
+	font-size: 15px;
+	line-height: 22px;
+	font-family: 'Poppins', sans-serif;
+	background-image: url(./svg/Search.svg);
+	background-repeat: no-repeat;
+	background-position: 15px 50%;
+}
+.search:focus {
+	outline: 0;
 }
 .search svg{
 	fill: rgb(65, 65, 65);

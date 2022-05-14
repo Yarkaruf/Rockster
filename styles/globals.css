@@ -43,6 +43,8 @@ li{
 :root{
   --black:#333333;
   --white:white;
+  --white-blue:#e4eeffb6;
+  --primary-white:#d1e2ffb6;
   --primary:#3A63DE;
   --primary-active:#00000025;
   --red:#FD726A;

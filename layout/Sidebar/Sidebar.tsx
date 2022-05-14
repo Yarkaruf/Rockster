@@ -9,10 +9,8 @@ import Search from './svg/Search.svg';
 export const Sidebar = ({ className, ...props }: SidebarProps): JSX.Element => {
 	return (
 		<div className={cn(className, styles.sidebar)}{...props}>
-			<div className={styles.search}>
-				<Search />
-				Search...
-			</div>
+			<input className={styles.search} placeholder='Search...'>
+			</input>
 			<div className={styles.sidebar_item}>
 				<Setting />
 			</div>
