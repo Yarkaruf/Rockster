@@ -21,7 +21,8 @@
 	background-color: #F5F6F8;
 }
 .white:hover{
-	background-color: var(--gray-light);
+	background-color: var(--primary);
+	color: var(--white);
 }
 .min{
 	max-width: 56px;
@@ -29,6 +30,9 @@
 }
 .mid{
 	padding: 16px;
+	min-width: 75px;
+	display: flex;
+	justify-content: space-between;
 }
 .full{
 	width: 100%;
@@ -62,16 +66,17 @@
 	transition: .2s;
 }	
 .arrow{
-	margin-left: 10px;
 	width: 20px;
 	height: 20px;
-	fill:var(--black);
 }
 .arrow:hover{
 	fill: var(--white);
 }
 .down{
 	transform: rotate(90deg);
+}
+.left{
+	transform: rotate(-180deg);
 }
 .plus{
 	display: flex;

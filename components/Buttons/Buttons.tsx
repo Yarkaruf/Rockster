@@ -25,8 +25,10 @@ export const Button = ({ appearance, children, plus = 'false', className, size =
 					<Plus />
 				</span>}
 			{arrow != 'none' && <span className={cn(styles.arrow, {
-				[styles.down]: arrow == 'down'
+				[styles.down]: arrow == 'down',
+				[styles.left]: arrow == 'left'
 			})}>
+
 				<ArrowIcon />
 			</span>}
 		</button >

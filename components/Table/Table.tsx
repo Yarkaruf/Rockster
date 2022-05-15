@@ -5,49 +5,51 @@ import cn from 'classnames';
 import Filter from './svg/Filter.svg';
 import Setting from './svg/Setting.svg';
 import { Checkbox } from '../Checkbox/Checkbox';
+import { Button } from '../Buttons/Buttons';
+import { TagP } from '../Ptag/TagP';
 
 
-export const Table = ({ mark, data, ...props }: TableProps): JSX.Element => {
+export const Table = ({ sortData, mark, poisk, ...props }: TableProps): JSX.Element => {
 	return (
 		<table className={styles.table}>
 			<thead>
 				<tr className={styles.thead}>
 					<td><Checkbox /></td>
-					<td>
+					<td onClick={() => { sortData('Name') }}>
 						Product Name
 						<Filter />
 					</td>
-					<td>
+					<td onClick={() => { sortData('Number') }}>
 						Product No.
 						<Filter />
 					</td>
-					<td>
+					<td onClick={() => { sortData('Category') }}>
 						Category
 						<Filter />
 					</td>
-					<td>
+					<td onClick={() => { sortData('Price') }}>
 						Price
 						<Filter />
 					</td>
-					<td>
+					<td onClick={() => { sortData('Date') }}>
 						Date
 						<Filter />
 					</td>
-					<td>
+					<td onClick={() => { sortData('Status') }}>
 						Status
 						<Filter />
 					</td>
 				</tr>
 			</thead>
 			<tbody>
-				{data.map((row: any) => {
+				{poisk.map((row: any) => {
 					return (
 						<tr key={row.id} className={styles.tbody}>
 							<td className={styles.item}><Checkbox /></td>
 							<td className={styles.item}>{row.Name}</td>
 							<td className={styles.item}>#{row.Number}</td>
 							<td className={styles.item}>{row.Category}</td>
-							<td className={styles.item}>${row.Price}</td>
+							<td className={styles.item}>${row.Price.toLocaleString()}</td>
 							<td className={styles.item}>{row.Date}</td>
 							<td className={styles.item}><p className={cn(styles.mark, {
 								[styles.available]: row.Status == 'Available',
@@ -58,6 +60,21 @@ export const Table = ({ mark, data, ...props }: TableProps): JSX.Element => {
 					)
 				})}
 			</tbody>
+			<tfoot>
+				<tr className={styles.tfoot}>
+					<td className={styles.tfoot_item}>
+						<Button appearance={'ghost'} size={'mid'} arrow={'down'}>10</Button>
+						<TagP>Showing 1 - 10 of {poisk.length}</TagP>
+					</td>
+					<td className={styles.tfoot_item}>
+						<Button appearance={'ghost'} size={'min'} arrow={'left'}></Button>
+						<Button appearance={'white'} size={'min'}>1</Button>
+						<Button appearance={'white'} size={'min'}>2</Button>
+						<Button appearance={'white'} size={'min'}>3	</Button>
+						<Button appearance={'ghost'} size={'min'} arrow={'right'}></Button>
+					</td>
+				</tr>
+			</tfoot>
 		</table>
 	);
 };

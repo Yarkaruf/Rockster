@@ -3,11 +3,24 @@
 	padding-left: 24px;
 	width: 100%;
 	display: grid;
-	grid-template-rows: 30px 800px 104px;
+	grid-template-rows: 30px auto 104px;
 	font-weight: 400;
 	font-size: 15px;
 	line-height: 22px;
 	overflow-x: scroll;
+}
+.tfoot{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	height: 100%;
+}
+.tfoot_item{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	min-width: 250px;
 }
 .mark{
 	padding: 6px 14px;
@@ -35,7 +48,7 @@
 }
 .tbody{
 	display: grid;
-	grid-template-columns: 42px minmax(350px,3fr) repeat(5,minmax(150px,1fr)) 40px;
+	grid-template-columns: 42px minmax(450px,3fr) repeat(5,minmax(150px,1fr)) 40px;
 	grid-template-rows: 80px;
 	border-bottom: 1px solid #E1E3E6;
 }
