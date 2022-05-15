@@ -13,15 +13,33 @@ function Home(): JSX.Element {
   const [sort, setSort] = useState(true);
   //Данные из input
   const [value, setValue] = useState('');
-
+  //Пагинация таблицы
+  const [countRows, setCountRows] = useState(10);
+  const [countPage, setCountPage] = useState(Number);
+  const [currentPage, setCurrentPage] = useState(1);
+  const ActivePage = (page) => {
+    setCurrentPage(page);
+    console.log(page)
+  }
+  let pages = [];
+  for (let i = 1; i <= countPage; i++) {
+    pages.push(i)
+  }
+  const lastPageRow = currentPage * countRows;
+  const firstPageRow = (lastPageRow - countRows) + 1;
+  const paginationPage = poisk.slice(firstPageRow, lastPageRow);
   useEffect(() => {
     setIsLoading(true)
     fetch('http://localhost:3001/table')
       .then((res) => res.json())
       .then((data) => {
         setData(data)
-        setIsLoading(false)
         setSearch(data)
+        //ВЫГЛЯДИТ КАК ХУЙНЯ ПОМЕНЯТЬ (1)
+        const getCountPage = data.length / countRows;
+        console.log(poisk.length)
+        setIsLoading(false)
+        setCountPage(getCountPage)
         setSort(!sort)
       })
   }, [])
@@ -33,7 +51,10 @@ function Home(): JSX.Element {
     const search = data.filter((data: { Name: string; Number: number; Category: string; Price: number; Date: string; Status: string; }) => filter(e.target.value, data));
     setValue(e.target.value)
     setSearch(search)
-    console.log(value)
+    //ВЫГЛЯДИТ КАК ХУЙНЯ ПОМЕНЯТЬ (2)
+    setCountPage(Math.ceil(search.length / countRows))
+    console.log(search.length)
+    console.log(poisk.length)
   }
   const sortData = (params: any) => {
     const copyData = poisk.concat();
@@ -62,11 +83,11 @@ function Home(): JSX.Element {
         </>
       </EcommerceNav>
       <Search>
-        <EcommerceSearch searchTable={searchTable} value={value} setValue={setValue} data={data} />
+        <EcommerceSearch searchTable={searchTable} value={value} setValue={setValue} />
         <Button appearance='ghost' size='mid' arrow='right'>Active</Button>
         <Button appearance='primary' size='min' plus='true' />
       </Search>
-      {isLoading ? <Loader /> : <Table sortData={sortData} poisk={poisk} mark={'disabled'} />}
+      {isLoading ? <Loader /> : <Table ActivePage={ActivePage} pages={pages} sortData={sortData} search={poisk.length} poisk={paginationPage} mark={'disabled'} />}
     </>
   )
 }

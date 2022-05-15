@@ -9,7 +9,8 @@ import { Button } from '../Buttons/Buttons';
 import { TagP } from '../Ptag/TagP';
 
 
-export const Table = ({ sortData, mark, poisk, ...props }: TableProps): JSX.Element => {
+export const Table = ({ search, ActivePage, pages, sortData, mark, poisk, ...props }: TableProps): JSX.Element => {
+	console.log(search)
 	return (
 		<table className={styles.table}>
 			<thead>
@@ -64,13 +65,17 @@ export const Table = ({ sortData, mark, poisk, ...props }: TableProps): JSX.Elem
 				<tr className={styles.tfoot}>
 					<td className={styles.tfoot_item}>
 						<Button appearance={'ghost'} size={'mid'} arrow={'down'}>10</Button>
-						<TagP>Showing 1 - 10 of {poisk.length}</TagP>
+						<TagP>Showing 1 - 10 of {search}</TagP>
 					</td>
 					<td className={styles.tfoot_item}>
 						<Button appearance={'ghost'} size={'min'} arrow={'left'}></Button>
-						<Button appearance={'white'} size={'min'}>1</Button>
-						<Button appearance={'white'} size={'min'}>2</Button>
-						<Button appearance={'white'} size={'min'}>3	</Button>
+						{
+							pages.map(p => {
+								return (
+									<Button key={p} appearance={'white'} size={'min'} onClick={() => { ActivePage(p) }}>{p}</Button>
+								)
+							})
+						}
 						<Button appearance={'ghost'} size={'min'} arrow={'right'}></Button>
 					</td>
 				</tr>
