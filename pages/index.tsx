@@ -6,7 +6,7 @@ function Home(): JSX.Element {
   //Данные таблицы
   const [data, setData] = useState([]);
   //Сортировка таблицы через поиск
-  const [poisk, setSearch] = useState([]);
+  const [search, setSearch] = useState([]);
   //Анимация загрузки
   const [isLoading, setIsLoading] = useState(true);
   //Сортировка таблицы по клику
@@ -19,15 +19,14 @@ function Home(): JSX.Element {
   const [currentPage, setCurrentPage] = useState(1);
   const ActivePage = (page) => {
     setCurrentPage(page);
-    console.log(page)
   }
   let pages = [];
   for (let i = 1; i <= countPage; i++) {
     pages.push(i)
   }
   const lastPageRow = currentPage * countRows;
-  const firstPageRow = (lastPageRow - countRows) + 1;
-  const paginationPage = poisk.slice(firstPageRow, lastPageRow);
+  const firstPageRow = lastPageRow - countRows;
+  const paginationPage = search.slice(firstPageRow, lastPageRow);
   useEffect(() => {
     setIsLoading(true)
     fetch('http://localhost:3001/table')
@@ -37,7 +36,6 @@ function Home(): JSX.Element {
         setSearch(data)
         //ВЫГЛЯДИТ КАК ХУЙНЯ ПОМЕНЯТЬ (1)
         const getCountPage = data.length / countRows;
-        console.log(poisk.length)
         setIsLoading(false)
         setCountPage(getCountPage)
         setSort(!sort)
@@ -48,18 +46,16 @@ function Home(): JSX.Element {
     return regExp.test(data.Name) || regExp.test(data.Number) || regExp.test(data.Category) || regExp.test(data.Price) || regExp.test(data.Date) || regExp.test(data.Status);
   }
   const searchTable = (e: any) => {
-    const search = data.filter((data: { Name: string; Number: number; Category: string; Price: number; Date: string; Status: string; }) => filter(e.target.value, data));
+    const dataFilter = data.filter((data: { Name: string; Number: number; Category: string; Price: number; Date: string; Status: string; }) => filter(e.target.value, data));
+    setCurrentPage(1)
     setValue(e.target.value)
-    setSearch(search)
+    setSearch(dataFilter)
     //ВЫГЛЯДИТ КАК ХУЙНЯ ПОМЕНЯТЬ (2)
-    setCountPage(Math.ceil(search.length / countRows))
-    console.log(search.length)
-    console.log(poisk.length)
+    setCountPage(Math.ceil(dataFilter.length / countRows))
   }
   const sortData = (params: any) => {
-    const copyData = poisk.concat();
+    const copyData = search.concat();
     let sortData;
-    console.log(copyData)
     if (sort) {
       sortData = copyData.sort(
         (a, b) => { return a[params] > b[params] ? 1 : -1 }
@@ -87,9 +83,8 @@ function Home(): JSX.Element {
         <Button appearance='ghost' size='mid' arrow='right'>Active</Button>
         <Button appearance='primary' size='min' plus='true' />
       </Search>
-      {isLoading ? <Loader /> : <Table ActivePage={ActivePage} pages={pages} sortData={sortData} search={poisk.length} poisk={paginationPage} mark={'disabled'} />}
+      {isLoading ? <Loader /> : <Table ActivePage={ActivePage} countRows={countRows} currentPage={currentPage} pages={pages} sortData={sortData} search={search.length} paginationPage={paginationPage} mark={'disabled'} />}
     </>
   )
 }
 export default withLayoult(Home);
-

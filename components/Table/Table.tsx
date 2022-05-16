@@ -1,16 +1,16 @@
 import styles from './Table.module.css';
 import { TableProps } from './Table.props';
-import React from 'react';
+import React, { useState } from 'react';
 import cn from 'classnames';
 import Filter from './svg/Filter.svg';
 import Setting from './svg/Setting.svg';
 import { Checkbox } from '../Checkbox/Checkbox';
 import { Button } from '../Buttons/Buttons';
 import { TagP } from '../Ptag/TagP';
+import { DropDown } from '../DropDown/DropDown';
 
 
-export const Table = ({ search, ActivePage, pages, sortData, mark, poisk, ...props }: TableProps): JSX.Element => {
-	console.log(search)
+export const Table = ({ countRows, currentPage, search, ActivePage, pages, sortData, mark, paginationPage, ...props }: TableProps): JSX.Element => {
 	return (
 		<table className={styles.table}>
 			<thead>
@@ -43,7 +43,7 @@ export const Table = ({ search, ActivePage, pages, sortData, mark, poisk, ...pro
 				</tr>
 			</thead>
 			<tbody>
-				{poisk.map((row: any) => {
+				{paginationPage.map((row: any) => {
 					return (
 						<tr key={row.id} className={styles.tbody}>
 							<td className={styles.item}><Checkbox /></td>
@@ -64,25 +64,31 @@ export const Table = ({ search, ActivePage, pages, sortData, mark, poisk, ...pro
 			<tfoot>
 				<tr className={styles.tfoot}>
 					<td className={styles.tfoot_item}>
-						<Button appearance={'ghost'} size={'mid'} arrow={'down'}>10</Button>
-						<TagP>Showing 1 - 10 of {search}</TagP>
+						<Button appearance={'ghost'} size={'mid'} arrow={'down'}>
+							{countRows}
+						</Button>
+						<TagP>Showing 1 - {countRows} of {search}</TagP>
 					</td>
 					<td className={styles.tfoot_item}>
-						<Button appearance={'ghost'} size={'min'} arrow={'left'}></Button>
+						<Button onClick={() => ActivePage(1)} appearance={'ghost'} size={'min'} arrow={'left'} />
 						{
 							pages.map(p => {
+								let pageButton = (active: number) => {
+									if (currentPage == active) {
+										return 'active'
+									} else {
+										return 'white'
+									}
+								}
 								return (
-									<Button key={p} appearance={'white'} size={'min'} onClick={() => { ActivePage(p) }}>{p}</Button>
+									<Button key={p} appearance={pageButton(p)} size={'min'} onClick={() => { ActivePage(p) }}>{p}</Button>
 								)
 							})
 						}
-						<Button appearance={'ghost'} size={'min'} arrow={'right'}></Button>
+						<Button onClick={() => ActivePage(pages.length)} appearance={'ghost'} size={'min'} arrow={'right'} />
 					</td>
 				</tr>
 			</tfoot>
 		</table>
 	);
 };
-//thead-columns
-//tbody-parse
-//tfoot-pagination

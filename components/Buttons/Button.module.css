@@ -4,6 +4,7 @@
 	cursor: pointer;
 	min-width: 56px;
 	max-height: 100%;
+	position: relative;
 	height: 56px;
 	border: none;
 	border-radius: 5px;
@@ -33,6 +34,10 @@
 	min-width: 75px;
 	display: flex;
 	justify-content: space-between;
+}
+.active{
+	background-color: var(--primary);
+	color:var(--white);
 }
 .full{
 	width: 100%;

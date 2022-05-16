@@ -11,6 +11,7 @@ export const Button = ({ appearance, children, plus = 'false', className, size =
 		<button className={cn(styles.button, {
 			[styles.primary]: appearance == 'primary',
 			[styles.ghost]: appearance == 'ghost',
+			[styles.active]: appearance == 'active',
 			[styles.min]: size == 'min',
 			[styles.mid]: size == 'mid',
 			[styles.full]: size == 'full',
@@ -31,6 +32,6 @@ export const Button = ({ appearance, children, plus = 'false', className, size =
 
 				<ArrowIcon />
 			</span>}
-		</button >
+		</button>
 	);
 };

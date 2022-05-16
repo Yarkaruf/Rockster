@@ -1,0 +1,11 @@
+.drop {
+	width: 100%;
+	left: 0;
+	top: 100%;
+	position: absolute;
+}
+
+.col {
+	display: flex;
+	flex-direction: column;
+}

@@ -3,7 +3,7 @@
 	padding-left: 24px;
 	width: 100%;
 	display: grid;
-	grid-template-rows: 30px auto 104px;
+	grid-template-rows: 30px auto 200px;
 	font-weight: 400;
 	font-size: 15px;
 	line-height: 22px;
@@ -12,15 +12,28 @@
 .tfoot{
 	display: flex;
 	justify-content: space-between;
-	align-items: center;
 	height: 100%;
 }
 .tfoot_item{
 	display: flex;
 	flex-direction: row;
 	align-items: center;
+	margin-bottom: 100px;
 	justify-content: space-between;
 	min-width: 250px;
+}
+.rows{
+	height: 40px;
+	background-color: var(--primary);
+	color: var(--white);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transition: .2s;
+}
+.rows:hover{
+	transition: .2s;
+	opacity: .7;
 }
 .mark{
 	padding: 6px 14px;
@@ -45,6 +58,11 @@
 }
 .thead svg{
 	margin-left: 10px;
+}
+.drop_menu{
+	width: 100%;
+	margin-top: 56px;
+	position: absolute;
 }
 .tbody{
 	display: grid;
