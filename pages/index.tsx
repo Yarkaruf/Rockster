@@ -34,7 +34,6 @@ function Home(): JSX.Element {
       .then((data) => {
         setData(data)
         setSearch(data)
-        //ВЫГЛЯДИТ КАК ХУЙНЯ ПОМЕНЯТЬ (1)
         const getCountPage = data.length / countRows;
         setIsLoading(false)
         setCountPage(getCountPage)
@@ -50,7 +49,6 @@ function Home(): JSX.Element {
     setCurrentPage(1)
     setValue(e.target.value)
     setSearch(dataFilter)
-    //ВЫГЛЯДИТ КАК ХУЙНЯ ПОМЕНЯТЬ (2)
     setCountPage(Math.ceil(dataFilter.length / countRows))
   }
   const sortData = (params: any) => {
