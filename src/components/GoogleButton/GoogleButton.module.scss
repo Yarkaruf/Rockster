@@ -1,0 +1,16 @@
+@import '/src/styles/variables';
+
+.googleButton{
+    position: relative;
+    margin-top: 42px;
+    padding: 16px 0;
+    background-color: $color_white;
+    border: 1px solid $color_border;
+    font-size: 15px;
+    font-weight: 500;
+
+    .googleIcon{
+        position: absolute;
+        left: 14px;
+    }
+}

@@ -1,0 +1,39 @@
+@function scaleVw($maxV, $minV, $maxS, $minS) {
+$rem: 16;
+$v: (100 * ($maxS - $minS)) / ($maxV - $minV);
+$abs: $minS - ($v / 100) * $minV;
+
+@return clamp($minS / $rem * 1rem, calc($abs / $rem * 1rem + $v * 1vw), $maxS / $rem * 1rem);
+}
+
+@function scaleVh($maxH, $minH, $maxS, $minS) {
+$rem: 16;
+$v: (100 * ($maxS - $minS)) / ($maxH - $minH);
+$abs: $minS - ($v / 100) * $minH;
+
+@return clamp($minS / $rem * 1rem, calc($abs / $rem * 1rem + $v * 1vh), $maxS / $rem * 1rem);
+}
+
+@function calcVw($maxV, $minV, $maxS, $minS) {
+$rem: 16;
+$v: (100 * ($maxS - $minS)) / ($maxV - $minV);
+$abs: $minS - ($v / 100) * $minV;
+
+@return calc($abs / $rem * 1rem + $v * 1vw);
+}
+
+@function calcVh($maxH, $minH, $maxS, $minS) {
+$rem: 16;
+$v: (100 * ($maxS - $minS)) / ($maxH - $minH);
+$abs: $minS - ($v / 100) * $minH;
+
+@return calc($abs / $rem * 1rem + $v * 1vh);
+}
+
+@function vw($vw, $size) {
+@return calc($size / ($vw / 100) * 1vw);
+}
+
+@function vh($vh, $size) {
+@return calc($size / ($vh / 100) * 1vh);
+}

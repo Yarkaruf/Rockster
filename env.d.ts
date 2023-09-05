@@ -1,12 +1,21 @@
 declare namespace NodeJS {
-    export interface ProcessEnv {
-      NEXT_PUBLIC_API_KEY: string;
-      NEXT_PUBLIC_AUTH_DOMAIN: string;
-      NEXT_PUBLIC_DATABASE_URL: string;
-      NEXT_PUBLIC_PROJECT_ID: string;
-      NEXT_PUBLIC_STORAGE_BUCKET: string;
-      NEXT_PUBLIC_MESSAGING_SENDER_ID: string;
-      NEXT_PUBLIC_APP_ID: string;
-      NEXT_PUBLIC_MEASUREMENT_ID: string;
-    }
+  export interface ProcessEnv {
+    NEXT_PUBLIC_FIREBASE_API_KEY: string;
+    NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN: string;
+    NEXT_PUBLIC_FIREBASE_DATABASE_URL: string;
+    NEXT_PUBLIC_FIREBASE_PROJECT_ID: string;
+    NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET: string;
+    NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID: string;
+    NEXT_PUBLIC_FIREBASE_APP_ID: string;
+    NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID: string;
+    FIREBASE_PRIVATE_KEY_ID: string;
+    FIREBASE_PRIVATE_KEY: string;
+    FIREBASE_CLIENT_EMAIL: string;
+    FIREBASE_CLIENT_ID: string;
+    FIREBASE_AUTH_URI: string;
+    FIREBASE_TOKEN_URI: string;
+    FIREBASE_AUTH_PROVIDER_X509_CERT_URL: string;
+    FIREBASE_CLIENT_X509_CERT_URL: string;
+    UNIVERSE_DOMAIN: string;
   }
+}
